@@ -73,7 +73,7 @@ def check_draw(board):
 def game_over(game_running):
     if game_running == False:
         print("Game over")
-def cela_hra():
+def game():
     print("""Welcome to Tic Tac Toe
 ========================================
 GAME RULES:
@@ -114,4 +114,4 @@ Let's start the game""")
                 game_over(game_running)
                 break
 if __name__ == '__main__':
-    cela_hra()
+    game()
