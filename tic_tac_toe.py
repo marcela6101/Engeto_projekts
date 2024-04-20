@@ -11,6 +11,7 @@ first_player = "X"
 second_player = "O"
 game_running = True
 def print_board(board):
+    print("========================================")
     print("+-----+-----+-----+")
     print("|  " + board[0] + "  |  " + board[1] + "  |  " + board[2] + "  |")
     print("+-----+-----+-----+")
@@ -18,6 +19,7 @@ def print_board(board):
     print("+-----+-----+-----+")
     print("|  " + board[6] + "  |  " + board[7] + "  |  " + board[8] + "  |  ")
     print("+-----+-----+-----+")
+    print("========================================")
 def first_player_input(board):
     move = True
     while move:
@@ -85,7 +87,8 @@ marks in a:
 * vertical or
 * diagonal row
 ========================================
-Let's start the game""")
+Let's start the game
+--------------------------------------------""")
     first_player = "X"
     second_player = "O"
     game_running = True
