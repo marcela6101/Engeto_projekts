@@ -23,23 +23,30 @@ def print_board(board):
 def first_player_input(board):
     move = True
     while move:
-        inp = int(input("Player X | Please enter your move number: "))
-
+        try:
+            inp = int(input("Player X | Please enter your move number: "))
+        except ValueError:
+            print("Your move is not number, please play again!")
+            continue
         if inp >= 1 and inp <= 9 and board[inp-1] == " ":
             board[inp-1] = first_player
             move = False
-        elif inp >= 10 or inp == 0:
+        elif inp >= 10 or inp == 0 or board[inp-1] != " ":
             print("Wrong move, please play again!")
 def second_player_input(board):
     move = True
     while move:
-        inp = int(input("Player O | Please enter your move number: "))
-
+        try:
+            inp = int(input("Player O | Please enter your move number: "))
+        except ValueError:
+            print("Your move is not number, please play again!")
+            continue
         if inp >= 1 and inp <= 9 and board[inp-1] == " ":
             board[inp-1] = second_player
             move = False
-        elif inp >= 10 or inp == 0:
+        elif inp >= 10 or inp == 0 or board[inp-1] != " ":
             print("Wrong move, please play again!")
+
 def check_horizontal(board):
     if board[0] == board[1] == board[2] and board[0] != " ":
         winner = board[0]
@@ -88,7 +95,7 @@ marks in a:
 * diagonal row
 ========================================
 Let's start the game
---------------------------------------------""")
+----------------------------------------""")
     first_player = "X"
     second_player = "O"
     game_running = True
@@ -101,7 +108,8 @@ Let's start the game
         else:
             print_board(board)
             first_player_input(board)
-            if check_draw(board) == True:
+            if (check_draw(board) == True and check_row(board) != True and check_horizontal(board) != True
+                and check_diagonal(board) != True):
                 game_running = False
                 game_over(game_running)
                 break
@@ -112,7 +120,8 @@ Let's start the game
                 break
             print_board(board)
             second_player_input(board)
-            if check_draw(board) == True:
+            if (check_draw(board) == True and check_row(board) != True and check_horizontal(board) != True
+                and check_diagonal(board) != True):
                 game_running = False
                 game_over(game_running)
                 break
